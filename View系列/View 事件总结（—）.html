@@ -4,17 +4,33 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Snake_W个人博客</title>
+  <title>View的事件分发（—） | Snake_W个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="github地址：https://github.com/hljwang3874149">
+  <meta name="description" content="点击事件（MotionEvent）
+点击事件的传递顺序 ： Activity -&amp;gt; Window -&amp;gt; View， 统一事件序列以Down事件开始 up 事件结束 。 正常情况 一个事件序列由一个view 处理。 可以通过特殊手段强制传递到其他view。
+
+View点击事件分发的三个重要方法 ：
+
+dispathTouchEvent(MotionEvent)  用来进行事件分发。事件传">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Snake_W个人博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:title" content="View的事件分发（—）">
+<meta property="og:url" content="http://yoursite.com/View系列/View 事件总结（—）.html">
 <meta property="og:site_name" content="Snake_W个人博客">
-<meta property="og:description" content="github地址：https://github.com/hljwang3874149">
+<meta property="og:description" content="点击事件（MotionEvent）
+点击事件的传递顺序 ： Activity -&amp;gt; Window -&amp;gt; View， 统一事件序列以Down事件开始 up 事件结束 。 正常情况 一个事件序列由一个view 处理。 可以通过特殊手段强制传递到其他view。
+
+View点击事件分发的三个重要方法 ：
+
+dispathTouchEvent(MotionEvent)  用来进行事件分发。事件传">
+<meta property="og:updated_time" content="2016-05-24T11:22:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Snake_W个人博客">
-<meta name="twitter:description" content="github地址：https://github.com/hljwang3874149">
+<meta name="twitter:title" content="View的事件分发（—）">
+<meta name="twitter:description" content="点击事件（MotionEvent）
+点击事件的传递顺序 ： Activity -&amp;gt; Window -&amp;gt; View， 统一事件序列以Down事件开始 up 事件结束 。 正常情况 一个事件序列由一个view 处理。 可以通过特殊手段强制传递到其他view。
+
+View点击事件分发的三个重要方法 ：
+
+dispathTouchEvent(MotionEvent)  用来进行事件分发。事件传">
   
     <link rel="alternative" href="/atom.xml" title="Snake_W个人博客" type="application/atom+xml">
   
@@ -150,12 +166,10 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
-  
-    <article id="post-View事件总结（—）" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/24/View事件总结（—）/" class="article-date">
+      <a href="/View系列/View 事件总结（—）.html" class="article-date">
   	<time datetime="2016-05-24T10:19:14.000Z" itemprop="datePublished">2016-05-24</time>
 </a>
     </div>
@@ -168,12 +182,19 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/24/View事件总结（—）/">View的事件分发（—）</a>
+    <h1 class="article-title" itemprop="name">
+      View的事件分发（—）
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -210,16 +231,9 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
+  
+    
   
 </article>
 
@@ -228,72 +242,28 @@
 
 
 
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/18/hello-world/" class="article-date">
-  	<time datetime="2016-04-18T09:54:28.000Z" itemprop="datePublished">2016-04-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/18/hello-world/">Hello World （hexo 使用说明）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天，终于有自己的个人blog了，这前在csdn零星记录了自己成长的脚印，也在大神的博客中学会很多，在此也要感谢csdn，之所以要见自己的博客，实在是无法忍受csdn的广告，对于一个商业网站也是无可厚非，个人表示能理解，适应你就待着 ，不适应就滚了，所以我滚过来自己弄一个，也感谢github 提供这样一个平台。<br>这个博客也是使用了，大神开源的项目（Hexo） 在此表示感谢，这篇是hexo的默认页面，使用的说明，作为开始我决定留着这篇文章。<br>感谢分享如果搭建博文的文章的作者，[手把手教你使用Hexo + Github Pages搭建个人独立博客]（<a href="http://jiji262.github.io/2016/04/15/2016-04-15-hexo-github-pages-blog/）" target="_blank" rel="external">http://jiji262.github.io/2016/04/15/2016-04-15-hexo-github-pages-blog/）</a> 如果你也希望搭建个人blog，这篇文章会给你很大的帮助。<br>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="undefined" data-title="View的事件分发（—）" data-url="http://yoursite.com/View系列/View 事件总结（—）.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
 
-
-
-
-
-
-  
-  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -317,7 +287,7 @@
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
 		isTag: false,
