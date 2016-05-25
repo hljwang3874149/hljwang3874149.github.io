@@ -4,17 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Snake_W个人博客</title>
+  <title>view事件(二)源码分析 | Snake_W个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="github地址：https://github.com/hljwang3874149">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Snake_W个人博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="###Activity dispathTouchEvent123456789public boolean dispatchTouchEvent(MotionEvent ev) &amp;#123;if (ev.getAction() == MotionEvent.ACTION_DOWN) &amp;#123;onUserInteraction(); //处理交互&amp;#125;if (getWindow().supe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="view事件(二)源码分析">
+<meta property="og:url" content="http://yoursite.com/2016/05/25/view事件(二)源码分析/index.html">
 <meta property="og:site_name" content="Snake_W个人博客">
-<meta property="og:description" content="github地址：https://github.com/hljwang3874149">
+<meta property="og:description" content="###Activity dispathTouchEvent123456789public boolean dispatchTouchEvent(MotionEvent ev) &amp;#123;if (ev.getAction() == MotionEvent.ACTION_DOWN) &amp;#123;onUserInteraction(); //处理交互&amp;#125;if (getWindow().supe">
+<meta property="og:updated_time" content="2016-05-25T06:36:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Snake_W个人博客">
-<meta name="twitter:description" content="github地址：https://github.com/hljwang3874149">
+<meta name="twitter:title" content="view事件(二)源码分析">
+<meta name="twitter:description" content="###Activity dispathTouchEvent123456789public boolean dispatchTouchEvent(MotionEvent ev) &amp;#123;if (ev.getAction() == MotionEvent.ACTION_DOWN) &amp;#123;onUserInteraction(); //处理交互&amp;#125;if (getWindow().supe">
   
     <link rel="alternative" href="/atom.xml" title="Snake_W个人博客" type="application/atom+xml">
   
@@ -150,9 +151,7 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
-  
-    <article id="post-view事件(二)源码分析" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-view事件(二)源码分析" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/05/25/view事件(二)源码分析/" class="article-date">
@@ -168,12 +167,19 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/25/view事件(二)源码分析/">view事件(二)源码分析</a>
+    <h1 class="article-title" itemprop="name">
+      view事件(二)源码分析
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -190,16 +196,19 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/24/View事件总结（—）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">View的事件分发（—）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -208,152 +217,28 @@
 
 
 
-
-
-
-  
-    <article id="post-View事件总结（—）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/24/View事件总结（—）/" class="article-date">
-  	<time datetime="2016-05-24T10:19:14.000Z" itemprop="datePublished">2016-05-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/24/View事件总结（—）/">View的事件分发（—）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="点击事件（MotionEvent）"><a href="#点击事件（MotionEvent）" class="headerlink" title="点击事件（MotionEvent）"></a>点击事件（MotionEvent）</h3><ol>
-<li><p>点击事件的传递顺序 ： Activity -&gt; Window -&gt; View，<br> 统一事件序列以Down事件开始 up 事件结束 。 正常情况 一个事件序列由一个view 处理。 可以通过特殊手段强制传递到其他view。</p>
-</li>
-<li><p>View点击事件分发的三个重要方法 ：</p>
-<ul>
-<li>dispathTouchEvent(MotionEvent)  用来进行事件分发。事件传递到当前View ，此方法会调用，当前view消耗事件返回true ，当前View 不消耗调用子view的dispathTouchEvent方法</li>
-<li>onInterceptTouchEvent(MotionEvent ) ，用来判断当前view 是否拦截次事件，同一事件序列中不在调用次方法。</li>
-<li>onTouchEvent(MotionEvent e) 在dispath中调用，处理点击事件，返回true 消耗当前事件，false 不消耗并不在接收此事件序列。</li>
-</ul>
-</li>
-<li><p>伪代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">dispatchTouchEvent</span><span class="params">(MotionEvent e)</span></span>&#123;</span><br><span class="line"><span class="keyword">boolean</span> consume = <span class="keyword">false</span>;</span><br><span class="line"><span class="keyword">if</span>(onintercepterTouchEvent(e))&#123;</span><br><span class="line">consume = onTouchEvent(e);</span><br><span class="line"> &#125;<span class="keyword">else</span>&#123;</span><br><span class="line"> consume = child.dispathTouchEvent(e);</span><br><span class="line">  &#125;</span><br><span class="line"> <span class="keyword">return</span> consume;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>如果都返回false 事件会由最顶层（Activity） 处理！！！</p>
-<ol>
-<li><p>如果当前view 设置了OnTouchListener ， listener中的onTouch方法被回调，如果返回false view的onTouchEvent方法会被调用， true view的onTouchEvent将不会被调用！！！ 可见view的TouchListener优先级高于 onTouchEvent(MotionEvent e)方法</p>
-</li>
-<li><p>特殊注意事项：</p>
-<ul>
-<li>ViewGroup默认不拦截任何事件，oninterceptTouchEvent 返回false ；</li>
-<li>View 的OnTouchEvent 默认消耗事件（返回true）， 除非clickable（默认true）  与longClickable（默认false）  均为false</li>
-<li>View的enable 属性不影响 onTouchEvent  如果clickable 与 longClickable 有一个为true onTOuchEvent返回true</li>
-<li>onClick 发生前提是当前view 可以点击，并消耗 down 和 up 事件</li>
-<li>事件分发由父-&gt; 子 ， requestDisallowIntercepterTouchEvent 可以干扰父元素事件分发 Action-Down 事件除外！</li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="view事件(二)源码分析" data-title="view事件(二)源码分析" data-url="http://yoursite.com/2016/05/25/view事件(二)源码分析/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
 
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/18/hello-world/" class="article-date">
-  	<time datetime="2016-04-18T09:54:28.000Z" itemprop="datePublished">2016-04-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/18/hello-world/">Hello World （hexo 使用说明）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天，终于有自己的个人blog了，这前在csdn零星记录了自己成长的脚印，也在大神的博客中学会很多，在此也要感谢csdn，之所以要见自己的博客，实在是无法忍受csdn的广告，对于一个商业网站也是无可厚非，个人表示能理解，适应你就待着 ，不适应就滚了，所以我滚过来自己弄一个，也感谢github 提供这样一个平台。<br>这个博客也是使用了，大神开源的项目（Hexo） 在此表示感谢，这篇是hexo的默认页面，使用的说明，作为开始我决定留着这篇文章。<br>感谢分享如果搭建博文的文章的作者，[手把手教你使用Hexo + Github Pages搭建个人独立博客]（<a href="http://jiji262.github.io/2016/04/15/2016-04-15-hexo-github-pages-blog/）" target="_blank" rel="external">http://jiji262.github.io/2016/04/15/2016-04-15-hexo-github-pages-blog/）</a> 如果你也希望搭建个人blog，这篇文章会给你很大的帮助。<br>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -377,8 +262,8 @@
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

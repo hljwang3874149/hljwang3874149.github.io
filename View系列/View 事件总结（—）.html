@@ -22,7 +22,7 @@ dispathTouchEvent(MotionEvent)  用来进行事件分发。事件传">
 View点击事件分发的三个重要方法 ：
 
 dispathTouchEvent(MotionEvent)  用来进行事件分发。事件传">
-<meta property="og:updated_time" content="2016-05-24T11:22:57.000Z">
+<meta property="og:updated_time" content="2016-05-24T11:26:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="View的事件分发（—）">
 <meta name="twitter:description" content="点击事件（MotionEvent）
@@ -210,7 +210,7 @@ dispathTouchEvent(MotionEvent)  用来进行事件分发。事件传">
 </ul>
 </li>
 <li><p>伪代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">dispatchTouchEvent</span><span class="params">(MotionEvent e)</span></span>&#123;</span><br><span class="line"><span class="keyword">boolean</span> consume = <span class="keyword">false</span>;</span><br><span class="line"><span class="keyword">if</span>(onintercepterTouchEvent(e))&#123;</span><br><span class="line">consume = onTouchEvent(e);</span><br><span class="line"> &#125;<span class="keyword">else</span>&#123;</span><br><span class="line"> consume = child.dispathTouchEvent(e);</span><br><span class="line">  &#125;</span><br><span class="line"> <span class="keyword">return</span> consume;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">dispatchTouchEvent</span><span class="params">(MotionEvent e)</span></span>&#123;</span><br><span class="line"><span class="keyword">boolean</span> consume = <span class="keyword">false</span>;</span><br><span class="line"><span class="keyword">if</span>(onintercepterTouchEvent(e))&#123;</span><br><span class="line">consume = onTouchEvent(e);</span><br><span class="line"> &#125;<span class="keyword">else</span>&#123;</span><br><span class="line"> consume = child.dispathTouchEvent(e);</span><br><span class="line">  &#125;</span><br><span class="line"> <span class="keyword">return</span> consume;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>如果都返回false 事件会由最顶层（Activity） 处理！！！</p>
